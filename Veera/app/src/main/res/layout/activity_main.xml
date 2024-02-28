@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout 
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="ClickHandler"
+            type="com.example.veera.MainActivityClickHandlers" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <!--The view handles user interactions such as button clicks, text input and gestures when a user interacts
+    with the UI.The view communicates these actions to the ViewModel.
+    The View observes live data or other observable data sources provided by the View model.
+    Live data allows the view to automatically update itself when the underlying data changes, providing
+    real time updates to the user.Ideally, the view should not contain business logic or data retrieval code.
+    Instead, it delegates these responsibilities to the view model.The separation of concerns helps maintain code, clarity and testability.
+    So in summary, the view in an Mvvm architecture is responsible for presentation of data and user interactions.
+    While the View model manages the underlying data, business logic and the communication between the
+    model and the View.-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:onClick="@{ClickHandler::onFABClicked}"
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="TODO" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
